@@ -56,7 +56,7 @@ Website https://client.badssl.com/ requires a valid user certificate. Otherwise 
 
 For convenience, I added `badssl.com-client.p12` (downloaded from https://badssl.com/download/) as a bundle resource. This allows you to test the successful authentication with a user certificate using `URLSession` and `WKWebView`.
 
-Note: in case the certificate does no longer work (expires Dec 4, 2023) then try to download the latest version from https://badssl.com/download/.
+Note: in case the certificate does no longer work (expires Nv 28, 2025) then try to download the latest version from https://badssl.com/download/.
 
 ## Acknowledgments
 
@@ -81,7 +81,7 @@ You can use the `openssl` library to decrypt the p12 file, access the certificat
 Input
 
 ```bash
-openssl pkcs12 -in ./ClientCertificateSwiftDemo/badssl.com-client.p12 -nodes -passin pass:"badssl.com" | openssl x509 -text -noout
+openssl pkcs12 -in ./ClientCertificateSwiftDemo/badssl.com-client.p12 -legacy -nodes -passin pass:"badssl.com" | openssl x509 -text -noout
 ```
 
 Output
@@ -90,13 +90,14 @@ Output
 Certificate:
     Data:
         Version: 3 (0x2)
-        Serial Number: 17726285331827515185 (0xf6006a9766cbdf31)
-    Signature Algorithm: sha256WithRSAEncryption
-        Issuer: C=US, ST=California, L=San Francisco, O=BadSSL, CN=BadSSL Client Root Certificate Authority
+        Serial Number:
+            c9:fc:9e:a7:04:59:e9:0c
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C = US, ST = California, L = San Francisco, O = BadSSL, CN = BadSSL Client Root Certificate Authority
         Validity
-            Not Before: Dec  4 00:08:19 2021 GMT
-            Not After : Dec  4 00:08:19 2023 GMT
-        Subject: C=US, ST=California, L=San Francisco, O=BadSSL, CN=BadSSL Client Certificate
+            Not Before: Nov 29 22:34:03 2023 GMT
+            Not After : Nov 28 22:34:03 2025 GMT
+        Subject: C = US, ST = California, L = San Francisco, O = BadSSL, CN = BadSSL Client Certificate
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 Public-Key: (2048 bit)
@@ -128,35 +129,36 @@ Certificate:
             X509v3 Key Usage:
                 Digital Signature, Non Repudiation, Key Encipherment
     Signature Algorithm: sha256WithRSAEncryption
-         19:4b:36:8b:c5:bd:2a:d4:2e:02:ef:26:62:97:fd:ba:12:59:
-         03:a1:58:4d:07:0d:7e:9b:54:ac:93:b3:8f:20:7f:bc:b7:0d:
-         74:8e:0f:e6:c7:90:13:47:2f:48:5e:9b:81:d1:15:26:ab:8f:
-         ec:77:f3:da:22:3c:4b:62:e6:2d:76:36:0f:4e:2c:b1:f0:48:
-         72:be:ec:07:e7:ae:48:4b:1c:0f:0c:2f:73:56:c3:41:81:af:
-         90:e0:76:c2:2f:ec:c2:5d:18:8a:d7:3d:0c:13:37:98:fe:f8:
-         80:b2:63:9f:3c:4d:f1:87:1f:cb:d4:e6:a6:f9:3e:b4:aa:0a:
-         52:d9:49:21:d4:d3:91:53:af:f0:dc:d4:1f:21:2a:38:e5:77:
-         f1:4a:3a:27:4b:a3:56:03:2c:55:23:68:1f:71:d6:66:4f:52:
-         27:3f:0b:8f:3d:97:23:df:5a:a3:ea:a0:c4:5d:e6:2f:d7:4a:
-         14:93:e4:53:ef:7c:6b:8a:45:de:6a:5c:a0:e4:ae:7f:86:69:
-         0f:f8:88:30:dd:0a:07:a4:0c:20:8f:84:ec:2e:ba:56:af:37:
-         10:43:8d:28:70:66:dd:53:79:4a:d9:35:23:37:53:81:9e:65:
-         fc:ab:54:12:2e:4e:bf:a0:04:ae:08:90:3f:5d:fe:f3:fb:b1:
-         ad:8d:42:cc:c5:d3:04:50:b7:79:b5:c2:f4:96:c4:fc:fd:d5:
-         e1:fe:31:05:35:74:d3:f3:83:58:67:42:02:8a:22:b5:02:35:
-         36:9b:fc:20:26:49:07:ca:0b:5b:61:47:5e:6c:3e:0e:5b:13:
-         49:30:25:dd:40:27:50:2a:4e:b6:31:23:45:48:4d:45:7c:1a:
-         46:b7:b5:20:29:dd:a2:99:d8:b0:60:81:81:cb:23:64:6f:f6:
-         35:de:e5:8c:79:0d:c9:1f:de:5f:98:48:5a:7f:dd:d4:83:90:
-         53:a0:12:e6:66:d8:57:d9:97:8b:cd:05:1f:9c:a2:88:69:07:
-         df:b6:8d:15:8b:2b:ee:1f:22:40:89:6d:af:98:d9:c1:1d:e6:
-         eb:09:13:5f:0c:4c:7f:45:53:f2:4a:0f:0c:c2:f9:e3:bd:48:
-         d2:c5:53:0d:f3:19:4b:12:c2:06:6c:04:73:fa:92:24:0d:b2:
-         e8:9a:f6:ae:0c:e5:ff:ba:f2:4c:cc:e3:ed:0d:53:c1:f0:c3:
-         2c:d9:12:d9:93:06:19:2d:28:78:a3:13:18:b1:76:f8:e5:30:
-         06:7c:84:03:ac:16:27:ec:7a:f2:34:d3:67:54:62:fb:71:a0:
-         76:9e:5e:1e:23:a5:81:d5:36:7b:08:7f:fe:f8:b8:b6:a0:88:
-         f1:ed:55:fe:fe:f5:46:55
+    Signature Value:
+        28:75:b8:7d:5c:c7:e4:e1:30:92:6c:72:f8:54:00:a1:42:b1:
+        ea:30:ae:38:7a:9a:c1:c6:c8:d0:29:64:7e:9c:37:71:7d:5c:
+        25:eb:a0:72:04:ee:5d:3f:42:7c:dc:d8:0c:08:60:b5:5e:ba:
+        8e:e6:c4:d0:b1:08:de:da:8f:5e:a7:0b:ea:e4:99:c3:fb:8f:
+        94:a2:f4:b4:22:e9:fd:26:8b:e5:d7:b8:bf:ba:5b:1e:30:bd:
+        ed:c3:e9:fb:9a:bf:1b:80:bc:bc:55:c4:e1:f4:db:33:73:06:
+        f7:d3:c6:11:9a:b2:39:f1:c2:83:80:e1:b2:90:af:6f:f6:2c:
+        6f:80:28:da:56:35:60:48:ee:e7:d3:26:25:b3:24:7d:d3:bb:
+        e3:11:5a:c1:d1:7c:d8:db:81:29:ce:0a:a9:cb:da:bd:78:ed:
+        1c:bf:2f:81:f5:e6:a4:30:b5:11:2b:50:26:7a:a1:a2:5b:33:
+        5c:ef:6b:0b:d1:15:90:49:dd:16:05:5b:29:e6:4d:09:6a:f3:
+        83:b3:5a:ac:b4:f7:5b:5b:47:a5:84:b0:0e:4c:63:5d:ad:8d:
+        10:92:c1:32:5d:eb:ae:59:c6:21:95:e0:7b:b9:a5:98:17:e6:
+        23:65:85:e2:08:4c:fa:19:c3:57:cb:73:82:af:43:16:14:02:
+        60:f3:a3:75:c3:50:90:35:f3:eb:76:9d:e6:f5:50:60:75:91:
+        03:50:55:c9:0b:c3:09:69:06:59:fb:08:5a:09:4a:2b:0c:81:
+        ec:dc:e1:b6:aa:44:d2:05:40:6d:7d:33:db:81:46:92:32:ab:
+        77:2e:71:7c:db:9e:78:8b:69:54:8c:bd:e6:3d:f1:6a:7d:55:
+        7b:c2:e2:53:6f:44:ab:a1:c5:c7:83:58:a9:d9:48:79:1a:05:
+        de:f0:1f:c2:2e:1f:6f:c4:bd:59:f7:39:89:18:42:eb:4e:16:
+        cf:6d:30:77:dc:85:54:cb:a8:8e:57:2d:5b:d8:0f:ac:ec:c4:
+        8b:ec:db:0d:0a:1a:cc:4c:a9:e5:e8:4b:c9:be:47:f1:8b:9a:
+        9a:69:d8:d4:d0:46:3e:19:86:e3:3e:6c:aa:b6:cb:02:12:91:
+        31:21:11:0c:e4:2f:c2:23:00:4b:fa:3d:f7:7e:2c:b5:a1:c0:
+        98:5b:54:4c:16:76:e1:fd:71:1d:ca:36:54:b8:38:6b:60:d0:
+        46:5a:96:7d:e0:88:6b:b6:2d:42:0e:92:20:6c:74:ce:72:66:
+        58:50:69:d3:1d:b0:36:6b:88:89:16:16:37:14:2b:0c:1b:2e:
+        af:e8:99:5f:16:22:5b:b4:1c:0f:e4:94:dc:70:9e:38:a1:35:
+        c3:1b:48:ac:c4:0a:d1:09
 ```
 
 
